@@ -1,0 +1,8 @@
+<!doctype html>
+<html lang="zh-CN"><meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1">
+<title>电脑急救桥</title><link rel="stylesheet" href="style.css">
+<main><small>PHONE RESCUE / 0.3</small><h1>让手机用上电脑</h1><p>传文件、编译运行、转换格式，再把结果带回手机。</p>
+<section><h2>连接电脑</h2><label>USB 四位码 / 局域网凭证<input id="token" type="password" autocomplete="off"></label><button id="connect">连接电脑</button><p id="status">使用电脑显示的配对链接打开本页。</p></section>
+<section><h2>文件往返</h2><p>上传到 inbox，任务产物放 outbox。单文件上限 100 MB。</p><input id="upload-file" type="file"><button id="upload">上传到电脑</button><button id="refresh-files">刷新文件</button><p id="file-status">连接后查看文件</p><div id="files"></div></section>
+<section><h2>执行任务</h2><p>粘贴 PowerShell 或模型生成的 JSON。导入不会自动执行。</p><textarea id="command" rows="7" placeholder="Get-NetIPConfiguration | Format-List"></textarea><button id="import">解析 JSON / 代码块</button><label>工作目录<input id="cwd" placeholder="连接后自动填入工作区"></label><label>超时（秒）<input id="timeout" type="number" value="60" min="1" max="300"></label><button id="run">检查并执行</button><button id="cancel">取消当前操作</button></section>
+<section><h2>执行结果</h2><pre id="result">尚未执行</pre><button id="copy">复制结果</button><p>浏览器不允许复制时，可长按结果选择文字。</p></section><footer>命令以电脑当前用户权限执行。局域网请使用电脑显示的长凭证。关闭程序不会撤销修改。</footer></main><script src="app.js"></script></html>

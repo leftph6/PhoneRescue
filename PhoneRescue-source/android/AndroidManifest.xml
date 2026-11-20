@@ -1,0 +1,15 @@
+<manifest xmlns:android="http://schemas.android.com/apk/res/android" package="local.phonerescue.app" android:versionCode="3" android:versionName="0.3.0">
+  <uses-sdk android:minSdkVersion="26" android:targetSdkVersion="35" />
+  <uses-permission android:name="android.permission.INTERNET" />
+  <queries><package android:name="com.deepseek.chat"/><package android:name="com.openai.chatgpt"/></queries>
+  <application android:label="电脑急救桥" android:theme="@android:style/Theme.Material.NoActionBar" android:allowBackup="false" android:usesCleartextTraffic="true" android:supportsRtl="true">
+    <service android:name=".RepairService" android:permission="android.permission.BIND_ACCESSIBILITY_SERVICE" android:exported="true" android:label="电脑急救桥 · 自动维修">
+      <intent-filter><action android:name="android.accessibilityservice.AccessibilityService"/></intent-filter>
+      <meta-data android:name="android.accessibilityservice" android:resource="@xml/repair_accessibility"/>
+    </service>
+    <activity android:name=".MainActivity" android:exported="true" android:configChanges="orientation|screenSize|keyboardHidden" android:windowSoftInputMode="adjustResize">
+      <intent-filter><action android:name="android.intent.action.MAIN"/><category android:name="android.intent.category.LAUNCHER"/></intent-filter>
+      <intent-filter><action android:name="android.intent.action.SEND"/><category android:name="android.intent.category.DEFAULT"/><data android:mimeType="text/plain"/></intent-filter>
+    </activity>
+  </application>
+</manifest>
